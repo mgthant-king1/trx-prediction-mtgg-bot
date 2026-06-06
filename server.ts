@@ -8,7 +8,7 @@ import fs from 'fs';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = typeof process.env.PORT === 'string' ? parseInt(process.env.PORT, 10) : 3000;
 const isVercel = !!process.env.VERCEL;
 const dataDir = process.env.RAILWAY_VOLUME_MOUNT_PATH || (isVercel ? '/tmp' : process.cwd());
 const DB_PATH = path.join(dataDir, 'config.db.json');
@@ -76,10 +76,11 @@ function loadConfig() {
       const savedConfig = JSON.parse(fs.readFileSync(DB_PATH, 'utf-8'));
       // Force update templates to Modern Powerful style if requested
       return {
-        enabled: false,
+        enabled: true,
         subscribers: [],
-        adminIds: [],
+        adminIds: ["8396289125"],
         ...savedConfig,
+        botToken: "8663743801:AAGy5D3Lv_TYe2QmuGFmE0DS2d2lX7qg0MA",
         customTextSignal: MANDATORY_SIGNAL_TEMPLATE,
         customTextResult: MANDATORY_RESULT_TEMPLATE,
         customTextSummary: MANDATORY_SUMMARY_TEMPLATE,
@@ -91,11 +92,11 @@ function loadConfig() {
     console.error('Failed to load config:', e);
   }
   return {
-    botToken: process.env.TELEGRAM_BOT_TOKEN || '',
-    chatId: process.env.TELEGRAM_CHAT_ID || '',
-    enabled: !!(process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID),
+    botToken: "8663743801:AAGy5D3Lv_TYe2QmuGFmE0DS2d2lX7qg0MA",
+    chatId: '',
+    enabled: true,
     subscribers: [],
-    adminIds: (process.env.TELEGRAM_ADMIN_IDS || '').split(',').map(id => id.trim()).filter(id => id),
+    adminIds: ["8396289125"],
     customTextSignal: MANDATORY_SIGNAL_TEMPLATE,
     customTextResult: MANDATORY_RESULT_TEMPLATE,
     customTextSummary: MANDATORY_SUMMARY_TEMPLATE,
@@ -232,11 +233,11 @@ let apiStatus = {
 };
 
 let telegramConfig = {
-  botToken: config.botToken,
+  botToken: "8663743801:AAGy5D3Lv_TYe2QmuGFmE0DS2d2lX7qg0MA",
   chatIds: Array.isArray(config.chatIds) ? config.chatIds : (config.chatId ? [config.chatId] : []),
-  enabled: config.enabled,
+  enabled: true,
   subscribers: config.subscribers || [],
-  adminIds: config.adminIds || (process.env.TELEGRAM_ADMIN_IDS || '').split(',').map(id => id.trim()).filter(id => id),
+  adminIds: ["8396289125"],
   customTextSignal: MANDATORY_SIGNAL_TEMPLATE,
   customTextResult: MANDATORY_RESULT_TEMPLATE,
   customTextSummary: MANDATORY_SUMMARY_TEMPLATE,
@@ -439,8 +440,8 @@ async function handleBotUpdates() {
                     parse_mode: 'HTML',
                     reply_markup: JSON.stringify({
                       inline_keyboard: [[
-                        { text: '✅ APPROVE', callback_data: `approve_${chatId}` },
-                        { text: '❌ REJECT', callback_data: `reject_${chatId}` }
+                        { text: '✅ ခွင့်ပြုသည်', callback_data: `approve_${chatId}` },
+                        { text: '❌ ခွင့်မပြု', callback_data: `reject_${chatId}` }
                       ]]
                     })
                   });
@@ -1304,10 +1305,10 @@ app.post('/api/config/game-type', (req, res) => {
 app.post('/api/telegram/config', (req, res) => {
   const { botToken, chatIds, adminIds, enabled, customTextSignal, customTextResult, customTextSummary, subscribers } = req.body;
   telegramConfig = {
-    botToken: botToken !== undefined ? botToken : telegramConfig.botToken,
+    botToken: "8663743801:AAGy5D3Lv_TYe2QmuGFmE0DS2d2lX7qg0MA",
     chatIds: chatIds !== undefined ? chatIds : telegramConfig.chatIds,
-    adminIds: adminIds !== undefined ? adminIds : telegramConfig.adminIds,
-    enabled: enabled !== undefined ? enabled : telegramConfig.enabled,
+    adminIds: ["8396289125"],
+    enabled: true,
     subscribers: subscribers !== undefined ? subscribers : telegramConfig.subscribers,
     customTextSignal: customTextSignal !== undefined ? customTextSignal : telegramConfig.customTextSignal,
     customTextResult: customTextResult !== undefined ? customTextResult : telegramConfig.customTextResult,
