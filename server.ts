@@ -8,9 +8,9 @@ import fs from 'fs';
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const isVercel = !!process.env.VERCEL;
-const dataDir = isVercel ? '/tmp' : process.cwd();
+const dataDir = process.env.RAILWAY_VOLUME_MOUNT_PATH || (isVercel ? '/tmp' : process.cwd());
 const DB_PATH = path.join(dataDir, 'config.db.json');
 const TELEMETRY_PATH = path.join(dataDir, 'telemetry.db.json');
 
