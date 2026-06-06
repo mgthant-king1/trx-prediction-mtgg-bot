@@ -1,0 +1,8 @@
+{
+  "botToken": "",
+  "chatId": "",
+  "enabled": false,
+  "customTextSignal": "<b>NEW SIGNAL [{{issue}}]</b>\n\nGame: <b>1 MIN TRX</b>\nPrediction: <b>{{prediction}}</b>\nNumber: <b>{{number}}</b>\nColor: <b>{{color}}</b>\n\n<i>Analysing 1-minute trends...</i>",
+  "customTextResult": "<b>ROUND RESULT [{{issue}}]</b>\n\nResult: {{number}} ({{prediction}})\nColor: {{color}}\n\nStatus: <b>{{status}}</b>\nAccuracy: {{accuracy}}%",
+  "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOiIxNzc2ODMxMDAxIiwibmJmIjoiMTc3NjgzMTAwMSIsImV4cCI6IjE3NzY4MzI4MDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL2V4cGlyYXRpb24iOiI0LzIyLzIwMjYgMTE6MTA6MDEgQU0iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBY2Nlc3NfVG9rZW4iLCJVc2VySWQiOiI1MzE3NDgiLCJVc2VyTmFtZSI6Ijk1OTk3MDU0MDc3NSIsIlVzZXJQaG90byI6IjYiLCJOaWNrTmFtZSI6Ik1HIFRIQU5UICIsIkFtb3VudCI6IjY4LjQ2IiwiSW50ZWdyYWwiOiIwIiwiTG9naW5NYXJrIjoiSDUiLCJMb2dpblRpbWUiOiI0LzIyLzIwMjYgMTE6MTA6MDEgQU0iLCJMb2dpbklQQWRkcmVzcyI6IjU2LjY5LjI2LjIxMCIsIkRiTnVtYmVyIjoiMCIsIklzdmFsaWRhdG9yIjoiMCIsIktleUNvZGUiOiI2NDciLCJUb2tlblR5cGUiOiJBY2Nlc3NfVG9rZW4iLCJQaG9uZVR5cGUiOiIxIiwiVXNlclR5cGUiOiIwIiwiVXNlck5hbWUyIjoiIiwiaXNzIjoiand0SXNzdWVyIiwiYXVkIjoibG90dGVyeVRpY2tldCJ9.vlG7uKcrMx2UKOopjOkocsMpVzZJiNCqoV-bIdgMsCM"
+}
